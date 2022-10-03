@@ -11,7 +11,11 @@ public class Reservation {
         this.audienceCount = audienceCount;
     }
 
-    public double totalFee() {
+    public double getTotalFeeBeforeDiscount() {
         return showing.getMovieFee() * audienceCount;
+    }
+
+    public double getTotalFeeAfterDiscount() {
+        return showing.calculateFee(audienceCount);
     }
 }

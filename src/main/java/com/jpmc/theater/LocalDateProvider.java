@@ -8,14 +8,15 @@ public class LocalDateProvider {
     /**
      * @return make sure to return singleton instance
      */
-    public static LocalDateProvider singleton() {
+    // Use synchronization technique to guarantee atomicity operation
+    public synchronized static LocalDateProvider singleton() {
         if (instance == null) {
             instance = new LocalDateProvider();
         }
-            return instance;
-        }
+        return instance;
+    }
 
     public LocalDate currentDate() {
-            return LocalDate.now();
+        return LocalDate.now();
     }
 }
